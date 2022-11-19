@@ -154,7 +154,7 @@ public class FabricUtils {
         } else {
             byte[] bytes = Base64.getDecoder().decode(bytesString);
             String content = new String(bytes, StandardCharsets.UTF_8);
-            File tmpFile = File.createTempFile("policy-" + System.currentTimeMillis(), ".tmp");
+            File tmpFile = Files.createTempFile("policy-" + System.currentTimeMillis(), ".tmp").toFile();
             try {
                 FileWriter writer = new FileWriter(tmpFile);
                 writer.write(content);
